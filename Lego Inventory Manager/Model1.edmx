@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="legoinventorymanagerModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="brick">
+          <Key>
+            <PropertyRef Name="brickelementid" />
+          </Key>
+          <Property Name="brickelementid" Type="int" Nullable="false" />
+          <Property Name="brickid" Type="int" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="typeid" Type="int" />
+          <Property Name="colorid" Type="int" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="colorid" />
+          </Key>
+          <Property Name="colorid" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_brick_color1">
+          <End Role="color" Type="Self.color" Multiplicity="0..1" />
+          <End Role="brick" Type="Self.brick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="colorid" />
+            </Principal>
+            <Dependent Role="brick">
+              <PropertyRef Name="colorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_brick_type">
+          <End Role="type" Type="Self.type" Multiplicity="0..1" />
+          <End Role="brick" Type="Self.brick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type">
+              <PropertyRef Name="typeid" />
+            </Principal>
+            <Dependent Role="brick">
+              <PropertyRef Name="typeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="legoinventorymanagerModelStoreContainer">
+          <EntitySet Name="brick" EntityType="Self.brick" Schema="legoinventorymanager" store:Type="Tables" />
+          <EntitySet Name="color" EntityType="Self.color" Schema="legoinventorymanager" store:Type="Tables" />
+          <EntitySet Name="type" EntityType="Self.type" Schema="legoinventorymanager" store:Type="Tables" />
+          <AssociationSet Name="fk_brick_color1" Association="Self.fk_brick_color1">
+            <End Role="color" EntitySet="color" />
+            <End Role="brick" EntitySet="brick" />
+          </AssociationSet>
+          <AssociationSet Name="fk_brick_type" Association="Self.fk_brick_type">
+            <End Role="type" EntitySet="type" />
+            <End Role="brick" EntitySet="brick" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="legoinventorymanagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="brick">
+          <Key>
+            <PropertyRef Name="brickelementid" />
+          </Key>
+          <Property Name="brickelementid" Type="Int32" Nullable="false" />
+          <Property Name="brickid" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="typeid" Type="Int32" />
+          <Property Name="colorid" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+          <NavigationProperty Name="color" Relationship="Self.fk_brick_color1" FromRole="brick" ToRole="color" />
+          <NavigationProperty Name="type" Relationship="Self.fk_brick_type" FromRole="brick" ToRole="type" />
+        </EntityType>
+        <EntityType Name="color">
+          <Key>
+            <PropertyRef Name="colorid" />
+          </Key>
+          <Property Name="colorid" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="brick" Relationship="Self.fk_brick_color1" FromRole="color" ToRole="brick" />
+        </EntityType>
+        <EntityType Name="type">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="brick" Relationship="Self.fk_brick_type" FromRole="type" ToRole="brick" />
+        </EntityType>
+        <Association Name="fk_brick_color1">
+          <End Role="color" Type="Self.color" Multiplicity="0..1" />
+          <End Role="brick" Type="Self.brick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="color">
+              <PropertyRef Name="colorid" />
+            </Principal>
+            <Dependent Role="brick">
+              <PropertyRef Name="colorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_brick_type">
+          <End Role="type" Type="Self.type" Multiplicity="0..1" />
+          <End Role="brick" Type="Self.brick" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type">
+              <PropertyRef Name="typeid" />
+            </Principal>
+            <Dependent Role="brick">
+              <PropertyRef Name="typeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="legoinventorymanagerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="brick" EntityType="Self.brick" />
+          <EntitySet Name="color" EntityType="Self.color" />
+          <EntitySet Name="type" EntityType="Self.type" />
+          <AssociationSet Name="fk_brick_color1" Association="Self.fk_brick_color1">
+            <End Role="color" EntitySet="color" />
+            <End Role="brick" EntitySet="brick" />
+          </AssociationSet>
+          <AssociationSet Name="fk_brick_type" Association="Self.fk_brick_type">
+            <End Role="type" EntitySet="type" />
+            <End Role="brick" EntitySet="brick" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="legoinventorymanagerModelStoreContainer" CdmEntityContainer="legoinventorymanagerEntities">
+          <EntitySetMapping Name="brick">
+            <EntityTypeMapping TypeName="legoinventorymanagerModel.brick">
+              <MappingFragment StoreEntitySet="brick">
+                <ScalarProperty Name="brickelementid" ColumnName="brickelementid" />
+                <ScalarProperty Name="brickid" ColumnName="brickid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="colorid" ColumnName="colorid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="color">
+            <EntityTypeMapping TypeName="legoinventorymanagerModel.color">
+              <MappingFragment StoreEntitySet="color">
+                <ScalarProperty Name="colorid" ColumnName="colorid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type">
+            <EntityTypeMapping TypeName="legoinventorymanagerModel.type">
+              <MappingFragment StoreEntitySet="type">
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
