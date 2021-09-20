@@ -31,6 +31,10 @@ namespace Lego_Inventory_Manager
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryScreen));
+            this.inventoryDatabaseDataSet = new Lego_Inventory_Manager.InventoryDatabaseDataSet();
+            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.brickTableAdapter = new Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters.BrickTableAdapter();
+            this.tableAdapterManager = new Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters.TableAdapterManager();
             this.brickBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -45,18 +49,40 @@ namespace Lego_Inventory_Manager
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.brickBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.brickDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brickBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDatabaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingNavigator)).BeginInit();
             this.brickBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brickDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // inventoryDatabaseDataSet
+            // 
+            this.inventoryDatabaseDataSet.DataSetName = "InventoryDatabaseDataSet";
+            this.inventoryDatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // brickBindingSource
+            // 
+            this.brickBindingSource.DataMember = "Brick";
+            this.brickBindingSource.DataSource = this.inventoryDatabaseDataSet;
+            // 
+            // brickTableAdapter
+            // 
+            this.brickTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.BrickTableAdapter = this.brickTableAdapter;
+            this.tableAdapterManager.ColorTableAdapter = null;
+            this.tableAdapterManager.TypeTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // brickBindingNavigator
             // 
@@ -115,7 +141,6 @@ namespace Lego_Inventory_Manager
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -124,14 +149,14 @@ namespace Lego_Inventory_Manager
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -139,7 +164,7 @@ namespace Lego_Inventory_Manager
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -148,13 +173,13 @@ namespace Lego_Inventory_Manager
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -168,6 +193,7 @@ namespace Lego_Inventory_Manager
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Enabled = false;
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
@@ -179,7 +205,7 @@ namespace Lego_Inventory_Manager
             this.brickBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.brickBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("brickBindingNavigatorSaveItem.Image")));
             this.brickBindingNavigatorSaveItem.Name = "brickBindingNavigatorSaveItem";
-            this.brickBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.brickBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
             this.brickBindingNavigatorSaveItem.Text = "Save Data";
             this.brickBindingNavigatorSaveItem.Click += new System.EventHandler(this.brickBindingNavigatorSaveItem_Click);
             // 
@@ -188,74 +214,71 @@ namespace Lego_Inventory_Manager
             this.brickDataGridView.AutoGenerateColumns = false;
             this.brickDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.brickDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.brickDataGridView.DataSource = this.brickBindingSource;
-            this.brickDataGridView.Location = new System.Drawing.Point(73, 123);
+            this.brickDataGridView.Location = new System.Drawing.Point(62, 81);
             this.brickDataGridView.Name = "brickDataGridView";
-            this.brickDataGridView.Size = new System.Drawing.Size(646, 220);
+            this.brickDataGridView.Size = new System.Drawing.Size(643, 220);
             this.brickDataGridView.TabIndex = 1;
-            this.brickDataGridView.VirtualMode = true;
             this.brickDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.brickDataGridView_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "brickelementid";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Element";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "BrickElementID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "BrickElementID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "brickid";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Brick ID";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "BrickID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "BrickID";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "typeid";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Type ID";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "TypeID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "TypeID";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "colorid";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Color ID";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "ColorID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "ColorID";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "quantity";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Quantity";
             this.dataGridViewTextBoxColumn6.HeaderText = "Quantity";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // brickBindingSource
-            // 
-            this.brickBindingSource.DataSource = typeof(Lego_Inventory_Manager.brick);
             // 
             // InventoryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 414);
             this.Controls.Add(this.brickDataGridView);
             this.Controls.Add(this.brickBindingNavigator);
             this.Name = "InventoryScreen";
             this.Text = "InventoryScreen";
+            this.Load += new System.EventHandler(this.InventoryScreen_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.inventoryDatabaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brickBindingNavigator)).EndInit();
             this.brickBindingNavigator.ResumeLayout(false);
             this.brickBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brickDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brickBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +286,10 @@ namespace Lego_Inventory_Manager
 
         #endregion
 
+        private InventoryDatabaseDataSet inventoryDatabaseDataSet;
         private System.Windows.Forms.BindingSource brickBindingSource;
+        private InventoryDatabaseDataSetTableAdapters.BrickTableAdapter brickTableAdapter;
+        private InventoryDatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingNavigator brickBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -278,9 +304,9 @@ namespace Lego_Inventory_Manager
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton brickBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView brickDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;

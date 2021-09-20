@@ -12,22 +12,29 @@ namespace Lego_Inventory_Manager
 {
     public partial class InventoryScreen : Form
     {
-
-        legoinventorymanagerEntities brickEntities;
         public InventoryScreen()
         {
             InitializeComponent();
         }
 
-        private void brickDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            brickEntities = new legoinventorymanagerEntities();
-            brickBindingSource.DataSource = brickEntities.brick.ToList();
-        }
-
         private void brickBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            brickEntities.SaveChanges();
+            this.Validate();
+            this.brickBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.inventoryDatabaseDataSet);
+
+        }
+
+        private void InventoryScreen_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'inventoryDatabaseDataSet.Brick' table. You can move, or remove it, as needed.
+            this.brickTableAdapter.Fill(this.inventoryDatabaseDataSet.Brick);
+
+        }
+
+        private void brickDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
