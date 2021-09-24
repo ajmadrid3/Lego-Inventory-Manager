@@ -121,7 +121,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseTasks.cs" />
+    <Compile Include="InventoryDatabaseDataSet.cs">
+      <DependentUpon>InventoryDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InventoryDatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

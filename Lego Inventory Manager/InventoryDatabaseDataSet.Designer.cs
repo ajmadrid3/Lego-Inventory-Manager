@@ -30,6 +30,10 @@ namespace Lego_Inventory_Manager {
         
         private TypeDataTable tableType;
         
+        private BrickDetailedDataTable tableBrickDetailed;
+        
+        private InventoryListDataTable tableInventoryList;
+        
         private global::System.Data.DataRelation relationFK_Brick_Color;
         
         private global::System.Data.DataRelation relationFK_Brick_Type;
@@ -70,6 +74,12 @@ namespace Lego_Inventory_Manager {
                 }
                 if ((ds.Tables["Type"] != null)) {
                     base.Tables.Add(new TypeDataTable(ds.Tables["Type"]));
+                }
+                if ((ds.Tables["BrickDetailed"] != null)) {
+                    base.Tables.Add(new BrickDetailedDataTable(ds.Tables["BrickDetailed"]));
+                }
+                if ((ds.Tables["InventoryList"] != null)) {
+                    base.Tables.Add(new InventoryListDataTable(ds.Tables["InventoryList"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -116,6 +126,26 @@ namespace Lego_Inventory_Manager {
         public TypeDataTable Type {
             get {
                 return this.tableType;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public BrickDetailedDataTable BrickDetailed {
+            get {
+                return this.tableBrickDetailed;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public InventoryListDataTable InventoryList {
+            get {
+                return this.tableInventoryList;
             }
         }
         
@@ -195,6 +225,12 @@ namespace Lego_Inventory_Manager {
                 if ((ds.Tables["Type"] != null)) {
                     base.Tables.Add(new TypeDataTable(ds.Tables["Type"]));
                 }
+                if ((ds.Tables["BrickDetailed"] != null)) {
+                    base.Tables.Add(new BrickDetailedDataTable(ds.Tables["BrickDetailed"]));
+                }
+                if ((ds.Tables["InventoryList"] != null)) {
+                    base.Tables.Add(new InventoryListDataTable(ds.Tables["InventoryList"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -246,6 +282,18 @@ namespace Lego_Inventory_Manager {
                     this.tableType.InitVars();
                 }
             }
+            this.tableBrickDetailed = ((BrickDetailedDataTable)(base.Tables["BrickDetailed"]));
+            if ((initTable == true)) {
+                if ((this.tableBrickDetailed != null)) {
+                    this.tableBrickDetailed.InitVars();
+                }
+            }
+            this.tableInventoryList = ((InventoryListDataTable)(base.Tables["InventoryList"]));
+            if ((initTable == true)) {
+                if ((this.tableInventoryList != null)) {
+                    this.tableInventoryList.InitVars();
+                }
+            }
             this.relationFK_Brick_Color = this.Relations["FK_Brick_Color"];
             this.relationFK_Brick_Type = this.Relations["FK_Brick_Type"];
         }
@@ -264,6 +312,10 @@ namespace Lego_Inventory_Manager {
             base.Tables.Add(this.tableColor);
             this.tableType = new TypeDataTable();
             base.Tables.Add(this.tableType);
+            this.tableBrickDetailed = new BrickDetailedDataTable();
+            base.Tables.Add(this.tableBrickDetailed);
+            this.tableInventoryList = new InventoryListDataTable();
+            base.Tables.Add(this.tableInventoryList);
             this.relationFK_Brick_Color = new global::System.Data.DataRelation("FK_Brick_Color", new global::System.Data.DataColumn[] {
                         this.tableColor.ColorIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableBrick.ColorIDColumn}, false);
@@ -289,6 +341,18 @@ namespace Lego_Inventory_Manager {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeType() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeBrickDetailed() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeInventoryList() {
             return false;
         }
         
@@ -356,6 +420,12 @@ namespace Lego_Inventory_Manager {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void TypeRowChangeEventHandler(object sender, TypeRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void BrickDetailedRowChangeEventHandler(object sender, BrickDetailedRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void InventoryListRowChangeEventHandler(object sender, InventoryListRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -367,7 +437,7 @@ namespace Lego_Inventory_Manager {
             
             private global::System.Data.DataColumn columnBrickID;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnBrickName;
             
             private global::System.Data.DataColumn columnTypeID;
             
@@ -426,9 +496,9 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn BrickNameColumn {
                 get {
-                    return this.columnName;
+                    return this.columnBrickName;
                 }
             }
             
@@ -493,12 +563,12 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public BrickRow AddBrickRow(int BrickElementID, int BrickID, string Name, TypeRow parentTypeRowByFK_Brick_Type, ColorRow parentColorRowByFK_Brick_Color, int Quantity) {
+            public BrickRow AddBrickRow(int BrickElementID, int BrickID, string BrickName, TypeRow parentTypeRowByFK_Brick_Type, ColorRow parentColorRowByFK_Brick_Color, int Quantity) {
                 BrickRow rowBrickRow = ((BrickRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BrickElementID,
                         BrickID,
-                        Name,
+                        BrickName,
                         null,
                         null,
                         Quantity};
@@ -539,7 +609,7 @@ namespace Lego_Inventory_Manager {
             internal void InitVars() {
                 this.columnBrickElementID = base.Columns["BrickElementID"];
                 this.columnBrickID = base.Columns["BrickID"];
-                this.columnName = base.Columns["Name"];
+                this.columnBrickName = base.Columns["BrickName"];
                 this.columnTypeID = base.Columns["TypeID"];
                 this.columnColorID = base.Columns["ColorID"];
                 this.columnQuantity = base.Columns["Quantity"];
@@ -552,8 +622,8 @@ namespace Lego_Inventory_Manager {
                 base.Columns.Add(this.columnBrickElementID);
                 this.columnBrickID = new global::System.Data.DataColumn("BrickID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBrickID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
+                this.columnBrickName = new global::System.Data.DataColumn("BrickName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickName);
                 this.columnTypeID = new global::System.Data.DataColumn("TypeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTypeID);
                 this.columnColorID = new global::System.Data.DataColumn("ColorID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -564,7 +634,7 @@ namespace Lego_Inventory_Manager {
                                 this.columnBrickElementID}, true));
                 this.columnBrickElementID.AllowDBNull = false;
                 this.columnBrickElementID.Unique = true;
-                this.columnName.MaxLength = 50;
+                this.columnBrickName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -700,7 +770,7 @@ namespace Lego_Inventory_Manager {
             
             private global::System.Data.DataColumn columnColorID;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnColorName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -745,9 +815,9 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn ColorNameColumn {
                 get {
-                    return this.columnName;
+                    return this.columnColorName;
                 }
             }
             
@@ -788,11 +858,11 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ColorRow AddColorRow(int ColorID, string Name) {
+            public ColorRow AddColorRow(int ColorID, string ColorName) {
                 ColorRow rowColorRow = ((ColorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ColorID,
-                        Name};
+                        ColorName};
                 rowColorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowColorRow);
                 return rowColorRow;
@@ -823,7 +893,7 @@ namespace Lego_Inventory_Manager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnColorID = base.Columns["ColorID"];
-                this.columnName = base.Columns["Name"];
+                this.columnColorName = base.Columns["ColorName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -831,13 +901,13 @@ namespace Lego_Inventory_Manager {
             private void InitClass() {
                 this.columnColorID = new global::System.Data.DataColumn("ColorID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnColorID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
+                this.columnColorName = new global::System.Data.DataColumn("ColorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColorName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnColorID}, true));
                 this.columnColorID.AllowDBNull = false;
                 this.columnColorID.Unique = true;
-                this.columnName.MaxLength = 50;
+                this.columnColorName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -973,7 +1043,7 @@ namespace Lego_Inventory_Manager {
             
             private global::System.Data.DataColumn columnTypeID;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnTypeName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1018,9 +1088,9 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn TypeNameColumn {
                 get {
-                    return this.columnName;
+                    return this.columnTypeName;
                 }
             }
             
@@ -1061,11 +1131,11 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TypeRow AddTypeRow(int TypeID, string Name) {
+            public TypeRow AddTypeRow(int TypeID, string TypeName) {
                 TypeRow rowTypeRow = ((TypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TypeID,
-                        Name};
+                        TypeName};
                 rowTypeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTypeRow);
                 return rowTypeRow;
@@ -1096,7 +1166,7 @@ namespace Lego_Inventory_Manager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnTypeID = base.Columns["TypeID"];
-                this.columnName = base.Columns["Name"];
+                this.columnTypeName = base.Columns["TypeName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1104,13 +1174,13 @@ namespace Lego_Inventory_Manager {
             private void InitClass() {
                 this.columnTypeID = new global::System.Data.DataColumn("TypeID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTypeID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
+                this.columnTypeName = new global::System.Data.DataColumn("TypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTypeID}, true));
                 this.columnTypeID.AllowDBNull = false;
                 this.columnTypeID.Unique = true;
-                this.columnName.MaxLength = 50;
+                this.columnTypeName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1238,6 +1308,654 @@ namespace Lego_Inventory_Manager {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class BrickDetailedDataTable : global::System.Data.TypedTableBase<BrickDetailedRow> {
+            
+            private global::System.Data.DataColumn columnBrickName;
+            
+            private global::System.Data.DataColumn columnBrickID;
+            
+            private global::System.Data.DataColumn columnBrickElementID;
+            
+            private global::System.Data.DataColumn columnColorName;
+            
+            private global::System.Data.DataColumn columnTypeName;
+            
+            private global::System.Data.DataColumn columnQuantity;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedDataTable() {
+                this.TableName = "BrickDetailed";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal BrickDetailedDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected BrickDetailedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BrickNameColumn {
+                get {
+                    return this.columnBrickName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BrickIDColumn {
+                get {
+                    return this.columnBrickID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BrickElementIDColumn {
+                get {
+                    return this.columnBrickElementID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ColorNameColumn {
+                get {
+                    return this.columnColorName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TypeNameColumn {
+                get {
+                    return this.columnTypeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRow this[int index] {
+                get {
+                    return ((BrickDetailedRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BrickDetailedRowChangeEventHandler BrickDetailedRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BrickDetailedRowChangeEventHandler BrickDetailedRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BrickDetailedRowChangeEventHandler BrickDetailedRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event BrickDetailedRowChangeEventHandler BrickDetailedRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddBrickDetailedRow(BrickDetailedRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRow AddBrickDetailedRow(string BrickName, int BrickID, int BrickElementID, string ColorName, string TypeName, int Quantity) {
+                BrickDetailedRow rowBrickDetailedRow = ((BrickDetailedRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        BrickName,
+                        BrickID,
+                        BrickElementID,
+                        ColorName,
+                        TypeName,
+                        Quantity};
+                rowBrickDetailedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBrickDetailedRow);
+                return rowBrickDetailedRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRow FindByBrickElementID(int BrickElementID) {
+                return ((BrickDetailedRow)(this.Rows.Find(new object[] {
+                            BrickElementID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                BrickDetailedDataTable cln = ((BrickDetailedDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new BrickDetailedDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnBrickName = base.Columns["BrickName"];
+                this.columnBrickID = base.Columns["BrickID"];
+                this.columnBrickElementID = base.Columns["BrickElementID"];
+                this.columnColorName = base.Columns["ColorName"];
+                this.columnTypeName = base.Columns["TypeName"];
+                this.columnQuantity = base.Columns["Quantity"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnBrickName = new global::System.Data.DataColumn("BrickName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickName);
+                this.columnBrickID = new global::System.Data.DataColumn("BrickID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickID);
+                this.columnBrickElementID = new global::System.Data.DataColumn("BrickElementID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickElementID);
+                this.columnColorName = new global::System.Data.DataColumn("ColorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColorName);
+                this.columnTypeName = new global::System.Data.DataColumn("TypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeName);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnBrickElementID}, true));
+                this.columnBrickName.MaxLength = 50;
+                this.columnBrickElementID.AllowDBNull = false;
+                this.columnBrickElementID.Unique = true;
+                this.columnColorName.MaxLength = 50;
+                this.columnTypeName.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRow NewBrickDetailedRow() {
+                return ((BrickDetailedRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new BrickDetailedRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(BrickDetailedRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.BrickDetailedRowChanged != null)) {
+                    this.BrickDetailedRowChanged(this, new BrickDetailedRowChangeEvent(((BrickDetailedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.BrickDetailedRowChanging != null)) {
+                    this.BrickDetailedRowChanging(this, new BrickDetailedRowChangeEvent(((BrickDetailedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.BrickDetailedRowDeleted != null)) {
+                    this.BrickDetailedRowDeleted(this, new BrickDetailedRowChangeEvent(((BrickDetailedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.BrickDetailedRowDeleting != null)) {
+                    this.BrickDetailedRowDeleting(this, new BrickDetailedRowChangeEvent(((BrickDetailedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveBrickDetailedRow(BrickDetailedRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                InventoryDatabaseDataSet ds = new InventoryDatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "BrickDetailedDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class InventoryListDataTable : global::System.Data.TypedTableBase<InventoryListRow> {
+            
+            private global::System.Data.DataColumn columnBrickName;
+            
+            private global::System.Data.DataColumn columnColorName;
+            
+            private global::System.Data.DataColumn columnTypeName;
+            
+            private global::System.Data.DataColumn columnQuantity;
+            
+            private global::System.Data.DataColumn columnBrickElementID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListDataTable() {
+                this.TableName = "InventoryList";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal InventoryListDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected InventoryListDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BrickNameColumn {
+                get {
+                    return this.columnBrickName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ColorNameColumn {
+                get {
+                    return this.columnColorName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TypeNameColumn {
+                get {
+                    return this.columnTypeName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QuantityColumn {
+                get {
+                    return this.columnQuantity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn BrickElementIDColumn {
+                get {
+                    return this.columnBrickElementID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRow this[int index] {
+                get {
+                    return ((InventoryListRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event InventoryListRowChangeEventHandler InventoryListRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event InventoryListRowChangeEventHandler InventoryListRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event InventoryListRowChangeEventHandler InventoryListRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event InventoryListRowChangeEventHandler InventoryListRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddInventoryListRow(InventoryListRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRow AddInventoryListRow(string BrickName, string ColorName, string TypeName, int Quantity, int BrickElementID) {
+                InventoryListRow rowInventoryListRow = ((InventoryListRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        BrickName,
+                        ColorName,
+                        TypeName,
+                        Quantity,
+                        BrickElementID};
+                rowInventoryListRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowInventoryListRow);
+                return rowInventoryListRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRow FindByBrickElementID(int BrickElementID) {
+                return ((InventoryListRow)(this.Rows.Find(new object[] {
+                            BrickElementID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                InventoryListDataTable cln = ((InventoryListDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new InventoryListDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnBrickName = base.Columns["BrickName"];
+                this.columnColorName = base.Columns["ColorName"];
+                this.columnTypeName = base.Columns["TypeName"];
+                this.columnQuantity = base.Columns["Quantity"];
+                this.columnBrickElementID = base.Columns["BrickElementID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnBrickName = new global::System.Data.DataColumn("BrickName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickName);
+                this.columnColorName = new global::System.Data.DataColumn("ColorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnColorName);
+                this.columnTypeName = new global::System.Data.DataColumn("TypeName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeName);
+                this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuantity);
+                this.columnBrickElementID = new global::System.Data.DataColumn("BrickElementID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrickElementID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnBrickElementID}, true));
+                this.columnBrickName.MaxLength = 50;
+                this.columnColorName.MaxLength = 50;
+                this.columnTypeName.MaxLength = 50;
+                this.columnBrickElementID.AllowDBNull = false;
+                this.columnBrickElementID.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRow NewInventoryListRow() {
+                return ((InventoryListRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new InventoryListRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(InventoryListRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.InventoryListRowChanged != null)) {
+                    this.InventoryListRowChanged(this, new InventoryListRowChangeEvent(((InventoryListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.InventoryListRowChanging != null)) {
+                    this.InventoryListRowChanging(this, new InventoryListRowChangeEvent(((InventoryListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.InventoryListRowDeleted != null)) {
+                    this.InventoryListRowDeleted(this, new InventoryListRowChangeEvent(((InventoryListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.InventoryListRowDeleting != null)) {
+                    this.InventoryListRowDeleting(this, new InventoryListRowChangeEvent(((InventoryListRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveInventoryListRow(InventoryListRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                InventoryDatabaseDataSet ds = new InventoryDatabaseDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "InventoryListDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class BrickRow : global::System.Data.DataRow {
@@ -1280,17 +1998,17 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Name {
+            public string BrickName {
                 get {
                     try {
-                        return ((string)(this[this.tableBrick.NameColumn]));
+                        return ((string)(this[this.tableBrick.BrickNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Brick\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrickName\' in table \'Brick\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBrick.NameColumn] = value;
+                    this[this.tableBrick.BrickNameColumn] = value;
                 }
             }
             
@@ -1378,14 +2096,14 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableBrick.NameColumn);
+            public bool IsBrickNameNull() {
+                return this.IsNull(this.tableBrick.BrickNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableBrick.NameColumn] = global::System.Convert.DBNull;
+            public void SetBrickNameNull() {
+                this[this.tableBrick.BrickNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1452,30 +2170,30 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Name {
+            public string ColorName {
                 get {
                     try {
-                        return ((string)(this[this.tableColor.NameColumn]));
+                        return ((string)(this[this.tableColor.ColorNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Color\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ColorName\' in table \'Color\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableColor.NameColumn] = value;
+                    this[this.tableColor.ColorNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableColor.NameColumn);
+            public bool IsColorNameNull() {
+                return this.IsNull(this.tableColor.ColorNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableColor.NameColumn] = global::System.Convert.DBNull;
+            public void SetColorNameNull() {
+                this[this.tableColor.ColorNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1517,30 +2235,30 @@ namespace Lego_Inventory_Manager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Name {
+            public string TypeName {
                 get {
                     try {
-                        return ((string)(this[this.tableType.NameColumn]));
+                        return ((string)(this[this.tableType.TypeNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'Type\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TypeName\' in table \'Type\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableType.NameColumn] = value;
+                    this[this.tableType.TypeNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableType.NameColumn);
+            public bool IsTypeNameNull() {
+                return this.IsNull(this.tableType.TypeNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableType.NameColumn] = global::System.Convert.DBNull;
+            public void SetTypeNameNull() {
+                this[this.tableType.TypeNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1552,6 +2270,310 @@ namespace Lego_Inventory_Manager {
                 else {
                     return ((BrickRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Brick_Type"])));
                 }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class BrickDetailedRow : global::System.Data.DataRow {
+            
+            private BrickDetailedDataTable tableBrickDetailed;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal BrickDetailedRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableBrickDetailed = ((BrickDetailedDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BrickName {
+                get {
+                    try {
+                        return ((string)(this[this.tableBrickDetailed.BrickNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrickName\' in table \'BrickDetailed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBrickDetailed.BrickNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int BrickID {
+                get {
+                    try {
+                        return ((int)(this[this.tableBrickDetailed.BrickIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrickID\' in table \'BrickDetailed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBrickDetailed.BrickIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int BrickElementID {
+                get {
+                    return ((int)(this[this.tableBrickDetailed.BrickElementIDColumn]));
+                }
+                set {
+                    this[this.tableBrickDetailed.BrickElementIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ColorName {
+                get {
+                    try {
+                        return ((string)(this[this.tableBrickDetailed.ColorNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ColorName\' in table \'BrickDetailed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBrickDetailed.ColorNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TypeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableBrickDetailed.TypeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TypeName\' in table \'BrickDetailed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBrickDetailed.TypeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Quantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableBrickDetailed.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'BrickDetailed\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBrickDetailed.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBrickNameNull() {
+                return this.IsNull(this.tableBrickDetailed.BrickNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBrickNameNull() {
+                this[this.tableBrickDetailed.BrickNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBrickIDNull() {
+                return this.IsNull(this.tableBrickDetailed.BrickIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBrickIDNull() {
+                this[this.tableBrickDetailed.BrickIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsColorNameNull() {
+                return this.IsNull(this.tableBrickDetailed.ColorNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetColorNameNull() {
+                this[this.tableBrickDetailed.ColorNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTypeNameNull() {
+                return this.IsNull(this.tableBrickDetailed.TypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTypeNameNull() {
+                this[this.tableBrickDetailed.TypeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableBrickDetailed.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableBrickDetailed.QuantityColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class InventoryListRow : global::System.Data.DataRow {
+            
+            private InventoryListDataTable tableInventoryList;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal InventoryListRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableInventoryList = ((InventoryListDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string BrickName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInventoryList.BrickNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrickName\' in table \'InventoryList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInventoryList.BrickNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string ColorName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInventoryList.ColorNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ColorName\' in table \'InventoryList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInventoryList.ColorNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TypeName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInventoryList.TypeNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TypeName\' in table \'InventoryList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInventoryList.TypeNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Quantity {
+                get {
+                    try {
+                        return ((int)(this[this.tableInventoryList.QuantityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Quantity\' in table \'InventoryList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInventoryList.QuantityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int BrickElementID {
+                get {
+                    return ((int)(this[this.tableInventoryList.BrickElementIDColumn]));
+                }
+                set {
+                    this[this.tableInventoryList.BrickElementIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsBrickNameNull() {
+                return this.IsNull(this.tableInventoryList.BrickNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetBrickNameNull() {
+                this[this.tableInventoryList.BrickNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsColorNameNull() {
+                return this.IsNull(this.tableInventoryList.ColorNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetColorNameNull() {
+                this[this.tableInventoryList.ColorNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTypeNameNull() {
+                return this.IsNull(this.tableInventoryList.TypeNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTypeNameNull() {
+                this[this.tableInventoryList.TypeNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQuantityNull() {
+                return this.IsNull(this.tableInventoryList.QuantityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQuantityNull() {
+                this[this.tableInventoryList.QuantityColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1643,6 +2665,74 @@ namespace Lego_Inventory_Manager {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public TypeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class BrickDetailedRowChangeEvent : global::System.EventArgs {
+            
+            private BrickDetailedRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRowChangeEvent(BrickDetailedRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public BrickDetailedRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class InventoryListRowChangeEvent : global::System.EventArgs {
+            
+            private InventoryListRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRowChangeEvent(InventoryListRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public InventoryListRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1784,7 +2874,7 @@ namespace Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters {
             tableMapping.DataSetTable = "Brick";
             tableMapping.ColumnMappings.Add("BrickElementID", "BrickElementID");
             tableMapping.ColumnMappings.Add("BrickID", "BrickID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Name", "BrickName");
             tableMapping.ColumnMappings.Add("TypeID", "TypeID");
             tableMapping.ColumnMappings.Add("ColorID", "ColorID");
             tableMapping.ColumnMappings.Add("Quantity", "Quantity");
@@ -1852,7 +2942,8 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM dbo.Brick";
+            this._commandCollection[0].CommandText = "SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity, BrickName FROM B" +
+                "rick";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2247,7 +3338,7 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Color";
             tableMapping.ColumnMappings.Add("ColorID", "ColorID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Name", "ColorName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -2290,7 +3381,7 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ColorID, Name FROM dbo.Color";
+            this._commandCollection[0].CommandText = "SELECT ColorID, Name, ColorName FROM Color";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2573,7 +3664,7 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Type";
             tableMapping.ColumnMappings.Add("TypeID", "TypeID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Name", "TypeName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -2616,7 +3707,7 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TypeID, Name FROM dbo.Type";
+            this._commandCollection[0].CommandText = "SELECT TypeID, Name, TypeName FROM Type";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2774,6 +3865,351 @@ SELECT BrickElementID, BrickID, Name, TypeID, ColorID, Quantity FROM Brick WHERE
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Name, int Original_TypeID, string Original_Name) {
             return this.Update(Original_TypeID, Name, Original_TypeID, Original_Name);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class BrickDetailedTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public BrickDetailedTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "BrickDetailed";
+            tableMapping.ColumnMappings.Add("BrickName", "BrickName");
+            tableMapping.ColumnMappings.Add("BrickID", "BrickID");
+            tableMapping.ColumnMappings.Add("BrickElementID", "BrickElementID");
+            tableMapping.ColumnMappings.Add("ColorName", "ColorName");
+            tableMapping.ColumnMappings.Add("TypeName", "TypeName");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Lego_Inventory_Manager.Properties.Settings.Default.InventoryDatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT BrickName, BrickID, BrickElementID, ColorName, TypeName, Quantity FROM dbo" +
+                ".BrickDetailed";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(InventoryDatabaseDataSet.BrickDetailedDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual InventoryDatabaseDataSet.BrickDetailedDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventoryDatabaseDataSet.BrickDetailedDataTable dataTable = new InventoryDatabaseDataSet.BrickDetailedDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class InventoryListTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public InventoryListTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "InventoryList";
+            tableMapping.ColumnMappings.Add("BrickName", "BrickName");
+            tableMapping.ColumnMappings.Add("ColorName", "ColorName");
+            tableMapping.ColumnMappings.Add("TypeName", "TypeName");
+            tableMapping.ColumnMappings.Add("Quantity", "Quantity");
+            tableMapping.ColumnMappings.Add("BrickElementID", "BrickElementID");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::Lego_Inventory_Manager.Properties.Settings.Default.InventoryDatabaseConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT BrickName, ColorName, TypeName, Quantity, BrickElementID FROM dbo.Inventor" +
+                "yList";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(InventoryDatabaseDataSet.InventoryListDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual InventoryDatabaseDataSet.InventoryListDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            InventoryDatabaseDataSet.InventoryListDataTable dataTable = new InventoryDatabaseDataSet.InventoryListDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     
