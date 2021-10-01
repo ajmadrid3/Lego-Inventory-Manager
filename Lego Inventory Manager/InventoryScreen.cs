@@ -12,11 +12,14 @@ namespace Lego_Inventory_Manager
 {
     public partial class InventoryScreen : Form
     {
-        
-        
+
+        static InventoryDatabaseDataSet.BrickDetailedDataTable brickDataSet;
+        InventoryDatabaseDataSet.BrickDetailedRow currentBrick;
+
         public InventoryScreen()
         {
             InitializeComponent();
+            brickDataSet = brickDetailedTableAdapter.GetData();
         }
 
         private void brickBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -33,7 +36,7 @@ namespace Lego_Inventory_Manager
             this.inventoryListTableAdapter.Fill(this.inventoryDatabaseDataSet.InventoryList);
             this.inventoryListDataGridView.ReadOnly = true;
             this.brickDetailedTableAdapter.Fill(this.inventoryDatabaseDataSet.BrickDetailed);
-            System.Diagnostics.Debug.WriteLine("Test");
+            currentBrick = brickDataSet.FindByBrickElementID(this.inventoryDatabaseDataSet.BrickDetailed[0].BrickElementID);
         }
 
         private void brickDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,17 +49,8 @@ namespace Lego_Inventory_Manager
             if (inventoryListDataGridView.CurrentRow != null)
             {
                 int elementID = Int32.Parse(inventoryListDataGridView.CurrentRow.Cells[4].Value.ToString());
-                System.Diagnostics.Debug.WriteLine("{0}", inventoryListDataGridView.CurrentRow.Cells[4].Value.ToString());
-
-                var brickDataSet = brickDetailedTableAdapter.GetData();
-                var foundBrick = brickDataSet.FindByBrickElementID(elementID);
-
-                brickNameTextBox.Text = foundBrick.BrickName;
-                brickIDTextBox.Text = foundBrick.BrickID.ToString();
-                brickElementIDTextBox.Text = foundBrick.BrickElementID.ToString();
-                colorNameTextBox.Text = foundBrick.ColorName;
-                typeNameTextBox.Text = foundBrick.TypeName;
-                quantityTextBox.Text = foundBrick.Quantity.ToString();
+                currentBrick = brickDataSet.FindByBrickElementID(elementID);
+                this.brickDetailedTableAdapter.FillByBrickElementID(this.inventoryDatabaseDataSet.BrickDetailed, elementID);
             }
         }
 
@@ -117,6 +111,20 @@ namespace Lego_Inventory_Manager
 
         private void quantityTextBox_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form brickDetailedScreen = new BrickDetailedScreen(currentBrick, this);
+            brickDetailedScreen.Show();
+        }
+
+        public void refreshInventoryScreen()
+        {
+            this.inventoryListTableAdapter.Fill(this.inventoryDatabaseDataSet.InventoryList);
+            this.brickDetailedTableAdapter.Fill(this.inventoryDatabaseDataSet.BrickDetailed);
+            this.Refresh();
 
         }
     }

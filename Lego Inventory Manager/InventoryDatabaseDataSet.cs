@@ -4,15 +4,26 @@
 
     partial class InventoryDatabaseDataSet
     {
+        partial class BrickDetailedDataTable
+        {
+        }
+
         partial class InventoryListDataTable
         {
         }
     }
 }
 
-namespace Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters {
-    
-    
+namespace Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters
+{
+    partial class BrickTableAdapter
+    {
+    }
+
+    partial class BrickDetailedTableAdapter
+    {
+    }
+
     public partial class InventoryListTableAdapter {
     }
 }

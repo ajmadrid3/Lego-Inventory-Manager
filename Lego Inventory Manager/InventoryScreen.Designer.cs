@@ -71,6 +71,7 @@ namespace Lego_Inventory_Manager
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             brickNameLabel = new System.Windows.Forms.Label();
             brickIDLabel = new System.Windows.Forms.Label();
             brickElementIDLabel = new System.Windows.Forms.Label();
@@ -288,6 +289,7 @@ namespace Lego_Inventory_Manager
             this.brickNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "BrickName", true));
             this.brickNameTextBox.Location = new System.Drawing.Point(648, 138);
             this.brickNameTextBox.Name = "brickNameTextBox";
+            this.brickNameTextBox.ReadOnly = true;
             this.brickNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.brickNameTextBox.TabIndex = 3;
             this.brickNameTextBox.TextChanged += new System.EventHandler(this.brickNameTextBox_TextChanged);
@@ -302,6 +304,7 @@ namespace Lego_Inventory_Manager
             this.brickIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "BrickID", true));
             this.brickIDTextBox.Location = new System.Drawing.Point(648, 164);
             this.brickIDTextBox.Name = "brickIDTextBox";
+            this.brickIDTextBox.ReadOnly = true;
             this.brickIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.brickIDTextBox.TabIndex = 5;
             this.brickIDTextBox.TextChanged += new System.EventHandler(this.brickIDTextBox_TextChanged);
@@ -311,6 +314,7 @@ namespace Lego_Inventory_Manager
             this.brickElementIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "BrickElementID", true));
             this.brickElementIDTextBox.Location = new System.Drawing.Point(648, 190);
             this.brickElementIDTextBox.Name = "brickElementIDTextBox";
+            this.brickElementIDTextBox.ReadOnly = true;
             this.brickElementIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.brickElementIDTextBox.TabIndex = 7;
             this.brickElementIDTextBox.TextChanged += new System.EventHandler(this.brickElementIDTextBox_TextChanged);
@@ -320,6 +324,7 @@ namespace Lego_Inventory_Manager
             this.colorNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "ColorName", true));
             this.colorNameTextBox.Location = new System.Drawing.Point(648, 216);
             this.colorNameTextBox.Name = "colorNameTextBox";
+            this.colorNameTextBox.ReadOnly = true;
             this.colorNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.colorNameTextBox.TabIndex = 9;
             this.colorNameTextBox.TextChanged += new System.EventHandler(this.colorNameTextBox_TextChanged);
@@ -329,6 +334,7 @@ namespace Lego_Inventory_Manager
             this.typeNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "TypeName", true));
             this.typeNameTextBox.Location = new System.Drawing.Point(648, 242);
             this.typeNameTextBox.Name = "typeNameTextBox";
+            this.typeNameTextBox.ReadOnly = true;
             this.typeNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.typeNameTextBox.TabIndex = 11;
             this.typeNameTextBox.TextChanged += new System.EventHandler(this.typeNameTextBox_TextChanged);
@@ -338,6 +344,7 @@ namespace Lego_Inventory_Manager
             this.quantityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.brickDetailedBindingSource, "Quantity", true));
             this.quantityTextBox.Location = new System.Drawing.Point(648, 268);
             this.quantityTextBox.Name = "quantityTextBox";
+            this.quantityTextBox.ReadOnly = true;
             this.quantityTextBox.Size = new System.Drawing.Size(100, 20);
             this.quantityTextBox.TabIndex = 13;
             this.quantityTextBox.TextChanged += new System.EventHandler(this.quantityTextBox_TextChanged);
@@ -388,6 +395,7 @@ namespace Lego_Inventory_Manager
             this.dataGridViewTextBoxColumn6});
             this.inventoryListDataGridView.DataSource = this.inventoryListBindingSource;
             this.inventoryListDataGridView.Location = new System.Drawing.Point(38, 122);
+            this.inventoryListDataGridView.MultiSelect = false;
             this.inventoryListDataGridView.Name = "inventoryListDataGridView";
             this.inventoryListDataGridView.Size = new System.Drawing.Size(446, 220);
             this.inventoryListDataGridView.TabIndex = 13;
@@ -424,11 +432,22 @@ namespace Lego_Inventory_Manager
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(587, 302);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 40);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Edit Brick";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // InventoryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 448);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.inventoryListDataGridView);
             this.Controls.Add(brickNameLabel);
             this.Controls.Add(this.brickNameTextBox);
@@ -478,7 +497,6 @@ namespace Lego_Inventory_Manager
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton brickBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.BindingSource brickDetailedBindingSource;
         private InventoryDatabaseDataSetTableAdapters.BrickDetailedTableAdapter brickDetailedTableAdapter;
         private System.Windows.Forms.BindingSource inventoryListBindingSource;
@@ -496,5 +514,6 @@ namespace Lego_Inventory_Manager
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Button button1;
     }
 }

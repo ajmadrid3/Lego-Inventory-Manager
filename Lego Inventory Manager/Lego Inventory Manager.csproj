@@ -121,6 +121,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrickDetailedScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrickDetailedScreen.Designer.cs">
+      <DependentUpon>BrickDetailedScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryDatabaseDataSet.cs">
       <DependentUpon>InventoryDatabaseDataSet.xsd</DependentUpon>
     </Compile>
@@ -137,6 +143,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BrickDetailedScreen.resx">
+      <DependentUpon>BrickDetailedScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InventoryScreen.resx">
       <DependentUpon>InventoryScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,10 +185,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="InventoryDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="InventoryDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>InventoryDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
