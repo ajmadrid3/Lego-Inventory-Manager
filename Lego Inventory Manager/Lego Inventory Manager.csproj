@@ -127,6 +127,12 @@
     <Compile Include="BrickDetailedScreen.Designer.cs">
       <DependentUpon>BrickDetailedScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertBrickScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertBrickScreen.Designer.cs">
+      <DependentUpon>InsertBrickScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryDatabaseDataSet.cs">
       <DependentUpon>InventoryDatabaseDataSet.xsd</DependentUpon>
     </Compile>
