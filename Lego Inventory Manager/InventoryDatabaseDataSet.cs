@@ -16,6 +16,10 @@
 
 namespace Lego_Inventory_Manager.InventoryDatabaseDataSetTableAdapters
 {
+    partial class ColorTableAdapter
+    {
+    }
+
     partial class BrickTableAdapter
     {
     }
